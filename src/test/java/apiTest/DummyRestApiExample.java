@@ -55,4 +55,14 @@ public class DummyRestApiExample {
                 assertThat().body("data.employee_name", equalTo("Doris Wilder")).
                 log().body();
     }
+
+    @Test
+    public void CreateOneEmployee(){
+        given().
+                spec(requestSpecification.body("{\"name\":\"test\",\"salary\":\"123\",\"age\":\"23\"}")).
+                post("create").
+                then().
+                spec(responseSpecification).
+                log().body();
+    }
 }
